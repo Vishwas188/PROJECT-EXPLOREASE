@@ -3,7 +3,7 @@
 const Listing=require("../models/listing");
 const mbxgeocoding = require('@mapbox/mapbox-sdk/services/geocoding');//services chahuye the geocoding ke to tilesets hata ke geocoding kr dia
 const maptoken=process.env.MAP_TOKEN;
-const geocodingclient=mbxgeocoding({accessToken:maptoken});
+const geocodingclient=mbxgeocoding({accessToken:process.env.MAP_TOKEN});
 
 /*module.exports.index=async(req,res)=>{
     const alllistings=await Listing.find({});//sari listing ajenge 
