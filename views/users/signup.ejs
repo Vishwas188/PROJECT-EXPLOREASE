@@ -1,0 +1,37 @@
+<%layout("/layouts/boilerplate")%>
+<!--1) pehle route banaya user.js ka fir us se get page banaya sign up ka jisme views ka users ka signup.ejs page render hoga jo yeh ha
+2)
+-->
+<div class="row">
+    <h1 class="col-8 offset-2">Sign up On ExploreEase</h1> 
+    <br>
+    <div class="col-8 offset-2">
+        <form action="/signup" method="post" class="needs-validation" novalidate><!--get se form ayega for sign up and is se req jayege to post route for submission-->
+        <div class="mb-3 " >
+            <lable for="username" class="form-lable">Username</lable>
+      
+            <input name="username"  type="text" class="form-control" id="username"
+            required/>
+           <div class="valid-feedback">  Looks good &#9989; </div>
+    
+    </div>
+    <div class="mb-3 " >
+        <lable for="email" class="form-lable">Email</lable>
+  
+        <input name="email"  type="email" class="form-control" id="email"
+        required/>
+       <div class="valid-feedback">  Looks good &#9989; </div>
+
+</div>
+<div class="mb-3 " >
+    <lable for="password" class="form-lable">Password</lable>
+
+    <input name="password"  type="password" class="form-control" id="password"
+    required/>
+   <div class="valid-feedback">  Looks good &#9989; </div>
+
+</div>
+<button class="btn btn-success">Sign up</button>
+        </form>
+</div>
+</div>

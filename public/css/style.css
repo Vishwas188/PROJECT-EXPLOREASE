@@ -1,0 +1,123 @@
+/*steps:  neeche ke steps to samajh lg  jenge im making steps after we have made card effect
+1)footer ko ek dum bottom pe lana uske liye body ke andar display wagerah add kr re except font
+2)flex-direftion means kis direction mein align ho row mein ya col mein to col kra to wese he rahe items kioki wese he the pehle
+min-height body ko 100% dede baki flex 1 ka matlab ha relative to footer poora grow kr je body till footer ke space ke ilawa jitni space bachte
+3)add-btn ko color dia  */
+body{
+   
+
+
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display:flex;
+  flex-direction: column;
+  min-height:100vh;
+ 
+}
+.container{
+   flex:1;
+}
+
+.navbar{
+    height:5rem;
+    background-color: white;
+}
+.fa-compass{
+    color:#fe424d;
+    font-size:2rem;
+}
+.nav-link{
+    color:#222222 !important;/*agar hum chahte ha css ke styling overpower kre bootstrap ke to use important*/
+}
+
+
+/*footer*/
+.f-info-links a{
+    text-decoration: none;/*to remove underline*/
+    color:#222222;
+}
+.f-info-links a:hover{
+    text-decoration: underline;/*to remove underline*/
+   
+}
+.f-info-links{
+    width:100%;/*ise wrap hojega content jo neeche kra*/
+    display:flex;/*doing all this to get items in the end not at the start of the footer*/
+    align-items:center;
+    justify-content: center;
+   
+}
+.f-info-socials{/*same*/
+    width:100%;
+    display:flex;/*doing all this to get items in the end not at the start of the footer*/
+    align-items:center;
+    justify-content: center;/*apne apne box mein center mein aagye*/
+   
+}
+.f-info-brand{
+    width:100%;
+    display:flex;/*doing all this to get items in the end not at the start of the footer*/
+    align-items:center;
+    justify-content: center;
+}
+.f-info-socials i{
+    font-size:1.2rem;
+    margin-right:1rem;
+}
+.f-info{
+    text-align:center;/*baki sab ko width 100% dede but to align them all in the center use this*/
+    height:8rem;
+    background-color: #ebebeb;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+
+}
+
+/*cards*/
+.listing-card{
+    border:none !important;
+    margin-bottom:2rem;
+
+}
+.card-img-top{
+    border-radius:1rem !important;
+    width:100%;/*poori width ko occupy krega card*/
+    object-fit:cover !important;
+
+}
+.card-body{
+    padding:0 !important;
+
+}
+.card-text{
+    font-weight:400 !important;
+}
+.listing-link{
+    text-decoration:none;
+}
+
+/*card effect*/
+.card-img-overlay{
+    opacity:0;
+}
+.card-img-overlay:hover{
+    opacity:0.2;
+    background-color: white;
+}
+/*button*/
+.add-btn{
+    background-color: #fe424d !important;
+    border:none !important;
+}
+
+/*show page*/
+.show-card{
+    padding-left:0;
+    padding-right: 0;
+
+}
+#map{
+    height:400px;
+    width:600px;
+}

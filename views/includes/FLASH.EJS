@@ -1,0 +1,11 @@
+ <%  if(success &&success.length>0){%><!--success ek array ha to chahe woh emptyu but ha woh still exist krta is lyi dusri condition dali-->
+  <div class="alert alert-success alert-dismissible fade show" role="alert"><%= success %>
+<button type="buttom" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+ <%}%>
+
+ <%  if(error &&error.length>0){%><!--success ek array ha to chahe woh emptyu but ha woh still exist krta is lyi dusri condition dali-->
+    <div class="alert alert-danger alert-dismissible fade show" role="alert"><%= error %>
+  <button type="buttom" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+   <%}%>

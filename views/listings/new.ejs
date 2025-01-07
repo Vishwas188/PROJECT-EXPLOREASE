@@ -1,0 +1,126 @@
+<%layout("/layouts/boilerplate")%> <!--pehle isko yeh ni de rakha tha to jo bootstrap libraries the woh yeh use ni kr pa rha tha kioki woh to boilerplate.ejs mein the-->
+<!--steps: 
+1)lable de dia sabko
+2)class de di form lable aand form control
+3)class dedi mb-3
+4)sabko row ke andar dal dia jisme woh concept use hota ke sab agar 12 units use kr re to andar cols ke class deke sabko 8 units de diye taki kam space len and then offfset-2 kr dia left se taki center mein aaje form
+5)to understand 4th point better if we wanrt ke price and country should
+be in same line so we can make them both inside a row and give them different cols 
+6)fir inko md-4 and md-8 dedeya ke medium page tk dono ek he line rahe ni to bad mein alag alag line occupy kren
+7)uSING form validations like title kko required bana dia
+8>JS ka code lia from bootstrap for form validations and pasted it in boilerplate using file from public script.js
+9>fir using validfeedback classes to print message on title fields if rthey are correct or incorrect
+10)YEH hoge sare client end ke errors but server end se vi ho skte jese price mein alphabets dal diye to use async errors hojayenge kioki woh fir app.post pe async function mein woh data save hone ke koshish hoge. To use deal krne ko app.js mein middlewares banayenge errors handle krne ko-->
+<div class="row">
+  <div class="col-8 offset-2">
+    <br> <br>
+    <h3>Create a New Listing</h3>
+
+
+    <form method="POST" action="/listings"  class="needs-validation" novalidate enctype="multipart/form-data"> <!--non validate is used for using bootstrap required special messages-->
+      <!--sabko lables de re and div ke andar dal re . Kuch add he kr re na ke remove-->
+
+      <div class="mb-3 " >
+      <lable for="title" class="form-lable">Title</lable>
+
+      <input name="listing[title]" placeholder="enter title" type="text" class="form-control"
+      required/>
+     <div class="valid-feedback"> Title Looks good</div>
+     <div class="invalid-feedback"> Please enter valid Title</div><!---->
+    </div>
+
+
+    <div class="mb-3">
+      <lable for="description" class="form-lable">Description</lable>
+      <textarea
+
+      name="listing[description]"
+      placeholder="enter description" class="form-control" required
+    ></textarea>
+    <div class="invalid-feedback"> Please enter a short description</div>
+    </div>
+     
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select name="listing[category]" for="category" class="form-select" aria-label="Default select example" required>
+          <option >Select Types Here</option>
+          <option value="Arctic">Arctic</option>
+          <option value="Beaches">Beaches</option>
+          <option value="Amazing Pools">Amazing Pools</option>
+          <option value="Hotels">Hotels</option>
+          <option value="Tropical">Tropical</option>
+          <option value="Tree Houses">Tree Houses</option>
+          <option value="Mountains">Mountains</option>
+          <option value="Islands">Islands</option>
+          <option value="Farms">Farms</option>
+          <option value="Cozy">Cozy</option>
+          
+        </select>
+  </div>                
+    
+<div class="mb-3">
+  <lable for="image" class="form-lable">Upload Listing Image</lable>
+  <input
+  name="listing[image]"
+ 
+  type="file" class="form-control"
+/>
+
+</div>
+   
+<div class="row">
+
+    
+
+<div class="mb-3 col-md-6">
+  <lable for="price" class="form-lable">Price</lable>
+  <input
+  name="listing[price]"
+  placeholder="enter location"
+  type="text" class="form-control"
+  required
+/>
+
+
+  </div>
+ <div class="mb-3 col-md-6">
+  <lable for="country" class="form-label">Country</lable>
+  <input name="listing[country]" placeholder="enter country" type="text" class="form-control" required/>
+  
+</div>
+
+ 
+</div>
+      
+     
+
+<div class="mb-3">
+  <lable for="location" class="form-lable">Location</lable>
+  <input
+  name="listing[location]"
+  placeholder="enter location"
+  type="text" class="form-control"
+  required
+/>
+<div class="invalid-feedback"> Location should be valid</div>
+</div>
+      
+
+      <button class="btn btn-dark add-btn">Add</button><!--bootstrap button-->
+      
+    </form>
+  </div>
+  </div>
+  <!--
+
+  <select class="form-select" name="category" >
+    <option value="Cozy">Cozy</option>
+    <option value="Farms">Farms</option>
+    <option value="Amazing Pools">Amazing Pools</option>
+    <option value="Hotels">Hotels</option>
+    <option value="Beaches">Beaches</option>
+    <option value="Tree houses">Tree Houses</option>
+    <option value="Arctic">Arctic</option>
+   
+
+  </select>-->

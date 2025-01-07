@@ -1,0 +1,89 @@
+<%layout("/layouts/boilerplate")%>
+<div class="row ">
+  <div class="offset-2 mt-3 col-8">
+    <h3>Edit your Listing</h3>
+  
+    <form method="POST" action="/listings/<%=listing._id%>?_method=PUT" class="needs-validation" novalidate enctype="multipart/form-data">
+
+      <div class="mb-3" >
+        <lable for="title" class="form-lable">Title</lable>
+      <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control"  required/>
+      <div class="valid-feedback"> Title Looks good</div>
+     <div class="invalid-feedback"> Please enter valid Title</div><!---->
+    </div>
+
+     
+
+<div class="mb-3"  >
+  <lable for="description" class="form-lable">Description</lable>
+      <textarea
+        name="listing[description]"
+       class="form-control" required
+       
+      ><%= listing.description %></textarea>
+      <div class="invalid-feedback"> Please enter a short description</div>
+   
+
+     
+</div>
+<div class="mb-3">
+  <b>Original listing image</b> <br>
+<img src="<%=originalimageurl%> " style="width:400px ;"><!--yeh originalimageurl kio use kra iska reason controller mein edit form pe ha-->
+</div>
+
+<div class="mb-3" > 
+  <lable for="image" class="form-lable">Upload New Image</lable>
+      <input
+        name="listing[image]"
+       
+        type="file" class="form-control"
+      />
+     
+    </div>
+    <div class="mb-3">
+      <label for="category" class="form-label">Category</label>
+      <select name="listing[category]" for="category" class="form-select" aria-label="Default select example" required>
+          <option >Select Types Here</option>
+          <option value="Arctic">Arctic</option>
+          <option value="Beaches">Beaches</option>
+          <option value="Amazing Pools">Amazing Pools</option>
+          <option value="Hotels">Hotels</option>
+          <option value="Tropical">Tropical</option>
+          <option value="Tree Houses">Tree Houses</option>
+          <option value="Mountains">Mountains</option>
+          <option value="Islands">Islands</option>
+          <option value="Farms">Farms</option>
+          <option value="Cozy">Cozy</option>
+          
+        </select>
+  </div>
+
+<div class="mb-3" >
+  <lable for="price" class="form-lable">Price</lable>
+      <input name="listing[price]" value="<%= listing.price %>"type="number" class="form-control"  required/>
+      <div class="invalid-feedback"> Please enter valid Price</div>
+    </div >
+
+
+     <div class="mb-3" >
+      <lable for="country" class="form-lable">Country</lable>
+      <input name="listing[country]" value="<%= listing.country %>"type="text" class="form-control" required />
+      <div class="invalid-feedback"> Country should be valid</div>
+     
+    </div>
+   
+
+<div class="mb-3" >
+  <lable for="location" class="form-lable">Location</lable>
+      <input
+        name="listing[location]"
+        value="<%= listing.location %>"
+        type="text" class="form-control" required
+      />
+      <div class="invalid-feedback"> Location should be valid</div>
+    </div >
+<br> 
+      <button class="btn btn-dark add-btn mb-2">edit</button>
+    </form>
+  </div>
+  </div>

@@ -1,0 +1,213 @@
+<%layout("/layouts/boilerplate")%> <!--yeh layout wala function keh rha tha-->
+ <style>
+  .card-text {
+    font-size: 1.2rem;  
+    font-weight: bold;  
+    color: #000;       
+  }
+  .filters{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+ 
+  }
+  .filter a{
+    text-decoration: none;
+    color: #000;
+  } 
+  .filter a i{
+    font-size: 1.5rem;
+  } 
+  .filter p{
+    font-size: 16px;
+  } 
+  .filter{
+    opacity: 0.6;
+    text-align: center;
+    margin-right: 3rem;
+    list-style: none;
+
+  }
+  .filter:hover{
+    opacity: 1;
+    
+  } 
+  .filter a:visited{
+    
+    border-bottom: 3px solid black;
+  }
+  
+  .filter-icon{
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 2rem;
+   
+   
+  }
+  .arr{
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid #0000005c;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;  
+    margin-right: 1rem;
+    margin-left:1rem;
+  }
+  .fa-sliders{
+    margin: 0 0.5rem;
+  }
+  #tax-info{
+    display:none; /*display none hota jagah vi ni gherega aur gayab vi hojega auir visibility hidden ka matlab  ha bs gayab rahega but jagah jrur gherega*/
+  }
+  .tax-toggle{
+    border:1px solid black;
+    border-radius:1rem;
+    height:3.5rem;
+    padding:1rem;
+    margin-bottom: 1rem;
+    display:flex;
+    align-items: center;
+    
+    
+  }
+
+  
+
+
+  
+  
+ </style>
+
+
+    <div class="filters">
+     
+      <div class="filter-icon">
+        <li class="filter">
+          <a href="/listings?q=Beaches">
+            <i class="fa-solid fa-umbrella-beach"></i>
+            <p>Beaches</p>
+          </a>
+        </li>
+       
+        <li class="filter">
+          <a href="/listings?q=Tree Houses">
+            <i class="fa-solid fa-tree-city"></i>
+            <p>Tree&nbsp;Houses</p>
+          </a>
+        </li>
+        <li class="filter">
+          <a href="/listings?q=Hotels">
+            <i class="fa-solid fa-hotel"></i>
+            <p>Hotels</p>
+          </a>
+        </li>
+        <li class="filter">
+          <a href="/listings?q=Mountains">
+            <i class="fa-solid fa-mountain-sun"></i>
+            <p>Mountains</p>
+          </a>
+        </li>
+        <li class="filter">
+          <a href="/listings?q=Amazing Pools">
+            <i class="fa-solid fa-water-ladder"></i>
+            <p>Amazing Pools</p>
+          </a>
+        </li>
+        <li class="filter">
+          <a id="li" href="/listings?q=Tropical">
+            <i class="fa-solid fa-sun"></i>
+            <p>Tropical</p>
+          </a>
+        </li>
+        <li class="filter">
+          <a id="li" href="/listings?q=Arctic">
+            <i class="fa-solid fa-snowflake"></i>
+            <p>Arctic</p>
+          </a>
+        </li>
+        <li class="filter">
+          <a href="/listings?q=Farms">
+            <i class="fa-solid fa-tractor"></i>
+            <p>Farms</p>
+          </a>
+        </li>
+        <li class="filter">
+          <a href="/listings?q=Islands">
+            <i class="fa-solid fa-person-swimming"></i>
+            <p>Islands</p>
+          </a>
+        </li>
+        <li class="filter">
+          <a href="/listings?q=Cozy">
+            <i class="fa-solid fa-house"></i>
+            <p>Cozy</p>
+          </a>
+          </li>
+          <div class="tax-toggle">
+          <div class="form-check-reverse form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Display Taxes </label>
+          </div>
+        </div>
+  </div>
+  
+  
+  </div>    
+
+  
+   
+
+
+   
+
+
+
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3"><!--to get them all in a row of 3 cols-->
+
+      <%for(let lists of alllistings){%>
+        <a href="/listings/<%=lists._id%>" class="listing-link" ><!--image ko clickable banane ko-->
+        <div class="card col listing-card" ><!--yayhan pe width the 20 rem but woh hata di taki 3 he cards aye ek row mein kioki large pe 3 set kre humne but 20 rem knre ke wajah se 4 ek row mein aane ke possibility ho ri the-->
+          <img src="<%=lists.image.url%>" class="card-img-top" alt="listing_image" style="height:20rem"><!--to  have the same height for each image-->
+          
+          
+            <div class="card-img-overlay"><!--to have some text on ur image. iski help se opacity effect create krenge in style.css-->
+             </div>
+          <div class="card-body">
+            <b><p class="card-text"><%=lists.title%></b>
+           <br>
+           &#8377; <%= lists.price.toLocaleString("en-IN") %>/Night  <i class="tax-info">&nbsp; + 18% GST</i>
+          </p>
+          </div>
+        </div>
+      </a>
+      
+      <%}%>
+    </div>
+
+    <script>
+      let taxbtn=document.getElementById("flexSwitchCheckDefault");
+
+      taxbtn.addEventListener("click",()=>{
+        let taxinfo=document.getElementsByClassName('tax-info');
+        console.log(taxinfo);
+        for(info of taxinfo){
+          if(info.style.display!="inline"){
+            info.style.display="inline";
+          }
+          else{
+            info.style.display="none";
+          }
+        
+        }
+      });
+    </script>
+
+   
+    
+
+
