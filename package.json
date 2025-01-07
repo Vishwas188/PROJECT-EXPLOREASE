@@ -4,6 +4,15 @@
     "node":"20.15.0"
 
   },
+  "name": "major-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vishwas",
+  "license": "ISC",
+  "description": "",
 
   "dependencies": {
     "@fluidjs/multer-cloudinary": "^1.0.4",
