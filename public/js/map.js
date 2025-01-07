@@ -1,4 +1,5 @@
 mapboxgl.accessToken = maptoken;
+
 const map = new mapboxgl.Map({
     container: 'map', // container ID
     style:"mapbox://styles/mapbox/streets-v12",
